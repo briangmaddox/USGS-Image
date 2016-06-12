@@ -1,0 +1,10 @@
+
+This is the distribution of the C++ Image library, version 9.0.
+This file is hopelessly out of date.  Look for a new version of
+it in the next major release.  See the ChangeLog for changes 
+from the last version.
+
+To build the library, type 'configure' and then 'make'.  This
+should build the library and install the includes and library
+in the appropriate places.  If you want to get fancy, RTFM on
+autoconf and configure.  :)

@@ -1,0 +1,141 @@
+ChangeLog for version 9.0 of the Image libraries.
+
+Changes from version 8.3 (and 8.9 and 8.99 and 8.999 etc)
+
+   Removed GreyPalletteImage and RGBPalletteImage.  Nobody
+   used them, and they sucked.  (Well, the Trans lib uses
+   them, but that will change soon.)  A lot of stuff has
+   been purified.  Also, the directory structure has changed,
+   and the clients of this library have been moved out of
+   the structure.
+   
+Changes from version 8.2
+
+   Added the Octree class, for color quantization, and fixed
+   (gasp!) some bugs in the RGB and Grey Image?File classes.
+   It seemed the Rectangle methods weren't working quite right.
+   Did some other stuff, but I can't remember what it was.
+   Don't use CorePalletteImageData class.  It is incomplete.
+   This lib uses the latest versions of the TIFF and GeoTIFF
+   libraries (Beta 18 and Beta 06 respectively).  This lib
+   does version 0.2 of the GeoTIFF spec.
+
+Changes from version 8.1
+
+   Removed ABORTERRMSG, EXITERRMSG, and ERRMSG from ImageCommon.h
+   They were obsolete, and were replaced by the ImageDebug class.
+   
+Changes from version 8.0
+
+   Added classes:  CoreImageData
+   Changed interface in TIFFImage?File, get/setTag() now
+   returns bool (true for success).
+   Added IMAGE_GTIF to ImageCommon.h
+   Added GeoTIFF to Image::getFileType() (only in input objects)
+
+Changes from version 7.1
+
+   Added classes:  GeoTIFFImageIFile and GeoTIFFImageOFile
+                   DOQImageIFile
+
+Changes from version 7.0
+
+   Added support for 4-bit pixels in TIFFImageIFile.
+
+Changes from version 6.999
+   
+   Cleaned up the source a lot.  Added -=lots=-
+   of debugging messages, which can be turned on 
+   from the ImageDebug object.  An instance of
+   ImageDebug is included in the libraries, and
+   can be accessed by including ImageDebug.h.
+   This instance is called gDebug.
+ 
+Changes from version 6.99
+
+   Small bug in TIFFImageIFile was fixed.
+
+Changes from version 6.4 - 6.9
+
+   There were no versions 6.4 - 6.9.
+
+Changes from version 6.3
+
+   Added spinners to some of the utilities.  Added Debug object
+   to library.  Debugging messages should be easy to turn on and
+   off.  Added untiled format support to CRLImageIFile.
+   
+Changed from version 6.2
+
+   TIFFImage?File can now set and get all the TIFFTAGs.
+   Various small bugs were exterminates.  Tried to get
+   rid of all compiler warnings.
+
+Changed from version 6.1
+
+   There was no version 6.1.
+
+Changes from version 6.0
+
+   Image and ImageData now have means for obtaining status
+   information, similar to that included in the iostreams
+   classes.
+
+Changes from version 5.2
+
+   Raster.cc and Raster.h are included in the Image library.
+
+   TIFFImageIFile and DGPImageIFile have scanline caches now.
+
+   
+Changes from version 5.1
+
+   All includes are now of the form
+      
+      #include "Image/Whatever.h"
+
+   Instead of
+      
+      #include "Whatever.h".
+
+   DOQImageIFile has been deleted from this library and moved
+   to the SDTS libraries.
+
+Changes from version 5.0
+
+   Image and all of it's children now have two new methods,
+   getRawRGBPixel() and getRawRGBScanline().  These work
+   the same as in the ImageData classes.  
+
+   Also, RGBImage, GreyImage, RGBPalletteImage and 
+   GreyPalletteImage now have constructors which take a filename
+   as an argument, and determine the proper ImageData object
+   for the Image.  Constructors which take only a filename 
+   create read-only objects.  Constructors which take a filename
+   and width and height create write-only objects.
+
+   getFileType() was added to Image.  This determines the type
+   of file (TIFF, RGB, etc...) from a combination of filename
+   extension and magic number.  If the file exists, and a magic
+   number is found in the file, the magic number is the sole
+   determinant of file type, unless the extension is .rgb,
+   .grey, or .doq, in which case the extension is the 
+   determinant of file type.  If the "create" constructor (the
+   one where you have to specify a width and height), the file
+   type is specified by file extension.
+
+Changes from version 4.1:
+
+   ImageData and all of it's children now have two new methods,
+   getRawRGBPixel and getRawRGBScanline, which use the new struct
+   RawRGBPixel, defined in ImageCommon.h.  These were added because
+   of performance considerations.
+
+Changes from version 4.0:
+
+   The class 'Pixel' has changed to 'AbstractPixel' in order to
+   avoid name collisions with X11 stuff.
+
+Changes from versions prior to 4.0:
+
+   Way to much to mention, but a lot of bugs were eliminated.

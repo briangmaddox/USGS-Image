@@ -1,0 +1,25 @@
+This is the CVS repository of the Image library.  Please note the following
+items before you try to compile this:
+
+1. It is currently set up under my own account (/home/bmaddox) so a few things
+   have been changed since I don't have a neutral location
+   configure.in - AC_PREFIX_DEFAULT should be set to your home directory
+		  (easiest way)
+   or run configure and specify the default directory manually
+
+
+2. headers.tar.gz should be uncompressed with the gzip -d headers.tar.gz
+   command and then untarred into your home directory under the include
+   directory with the tar xvf headers.tar ~/include  command or something
+   similiar depending on your specific system.  These headers must be in place
+   or the image library will _not_ compile!
+
+3. libs.tar.gz should be uncompressed with gzip -d libs.tar.gz and then 
+   untaarred into yoru home directory under the lib directory with the
+   command tar xvf libs.tar ~/lib or something similiar depending on your
+   specific system.  These lib files must also be in place before you do
+   anything.
+
+4. Any questions or comments can be directed to myself at bmaddox@usgs.gov.
+
+
